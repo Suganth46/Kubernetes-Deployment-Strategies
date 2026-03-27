@@ -1,0 +1,1357 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub v1 | Hollywood Originals</title>
+    <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-950 text-white">
+    <div class="relative min-h-screen bg-slate-950 text-white">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.12),transparent_55%)]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.95),rgba(15,23,42,0.75),rgba(15,23,42,0.95))]"></div>
+
+      <div class="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 py-12 md:py-16">
+        <header class="flex flex-wrap items-center justify-between gap-6">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-emerald-200">
+              MovieHub v1
+            </p>
+            <h1 class="text-2xl font-semibold text-white">Original Hollywood Archive</h1>
+          </div>
+          <nav class="flex flex-wrap gap-4 text-xs uppercase tracking-[0.2em] text-slate-300">
+            <a class="transition hover:text-white" href="#">Reviews</a>
+            <a class="transition hover:text-white" href="#">Watchlists</a>
+            <a class="transition hover:text-white" href="#">Editorial</a>
+            <a class="transition hover:text-white text-emerald-200" href="login.html">Login</a>
+          </nav>
+        </header>
+
+        
+
+        <section id="hero-section" class="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/70 shadow-[0_30px_80px_-50px_rgba(15,23,42,0.9)] transition-opacity duration-700">
+          <div class="absolute inset-0">
+            <img
+              id="hero-bg"
+              src="https://image.tmdb.org/t/p/w780/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg"
+              alt="Background"
+              class="h-full w-full object-cover opacity-70 transition-opacity duration-1000"
+            />
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(94,234,212,0.2),transparent_45%)]"></div>
+            <div class="grain absolute inset-0"></div>
+          </div>
+
+          <div id="hero-content" class="relative z-10 grid gap-10 px-8 py-14 md:grid-cols-[1.1fr_0.9fr] md:px-14 transition-opacity duration-700">
+            <div class="space-y-6">
+              <div class="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-emerald-200">
+                Freshly Released
+              </div>
+              <h1 id="hero-title" class="text-balance text-4xl font-semibold text-white md:text-6xl drop-shadow-lg">
+                Project Hail Mary
+              </h1>
+              <p id="hero-overview" class="max-w-xl text-lg text-slate-200/90">
+                A teacher-turned-astronaut wakes up light years from home and must save Earth from a dying sun.
+              </p>
+              <div class="flex flex-wrap gap-3 text-sm text-slate-300">
+                <span id="hero-genre" class="rounded-full border border-white/15 bg-white/5 px-4 py-2">Sci-Fi Adventure</span>
+                <span id="hero-date" class="rounded-full border border-white/15 bg-white/5 px-4 py-2">2026-03-15</span>
+                <span id="hero-rating" class="rounded-full border border-white/15 bg-white/5 px-4 py-2">Rating 8.2</span>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <button class="shine rounded-full bg-emerald-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5">
+                  Read the review
+                </button>
+                <a
+                  id="hero-trailer"
+                  class="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=m08TxIsFTRI"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="floating absolute -right-6 top-6 hidden h-24 w-24 rounded-full bg-emerald-200/20 blur-2xl md:block"></div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <img
+                  id="hero-poster"
+                  src="https://image.tmdb.org/t/p/w500/yihdXomYb5kTeSivtFndMy5iDmf.jpg"
+                  alt="Poster"
+                  class="h-full w-full rounded-xl object-cover"
+                />
+                <div class="mt-4 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-slate-300">
+                  <span>Now Playing</span>
+                  <span id="hero-poster-date">2026-03-15</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="hero-dots" class="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2">
+            <!-- Dots populated by JS -->
+          </div>
+        </section>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-semibold text-white">Recently Released</h2>
+              <p class="text-sm text-slate-300">
+                Fresh theatrical drops, updated weekly.
+              </p>
+            </div>
+            <button class="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10">
+              View schedule
+            </button>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="peaky blinders: the immortal man">
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/gRMalasZEzsZi4w2VFuYusfSfqf.jpg"
+                  alt="Peaky Blinders: The Immortal Man"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Crime Drama
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Peaky Blinders: The Immortal Man</h3>
+                  <p class="text-sm text-slate-300">
+                    Tommy Shelby returns to Birmingham to stop a plot that threatens his family and his country.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>2026-03-05</span>
+                  <span>Rating 7.4</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=lcvUGs3xaDM"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="crime 101">
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/heMdO64ys1hR896YE2jvTv8JlBX.jpg"
+                  alt="Crime 101"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Crime Thriller
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Crime 101</h3>
+                  <p class="text-sm text-slate-300">
+                    A relentless detective closes in on a thief running high-stakes heists along the 101 freeway.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>2026-02-11</span>
+                  <span>Rating 7.0</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=f5y-cziwmMw"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="scream 7">
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/jjyuk0edLiW8vOSnlfwWCCLpbh5.jpg"
+                  alt="Scream 7"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Horror Mystery
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Scream 7</h3>
+                  <p class="text-sm text-slate-300">
+                    A new Ghostface stalks a quiet town, forcing Sidney to confront her darkest fears.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>2026-02-25</span>
+                  <span>Rating 5.8</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=4g8OciWNJn4"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="shelter">
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/buPFnHZ3xQy6vZEHxbHgL1Pc6CR.jpg"
+                  alt="Shelter"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Action Thriller
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Shelter</h3>
+                  <p class="text-sm text-slate-300">
+                    A rescue on a remote island sparks a fight against enemies from the past.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>2026-01-28</span>
+                  <span>Rating 6.7</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=PPMawzJxKF4"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="space-y-10">
+          <div>
+            <h2 class="text-2xl font-semibold text-white">Genre Radar</h2>
+            <p class="text-sm text-slate-300">
+              Curated picks across every mood.
+            </p>
+          </div>
+
+          <div class="grid gap-8">
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h3 class="text-xl font-semibold text-white">Romance</h3>
+                  <p class="text-sm text-slate-300">Stories for the hopelessly devoted.</p>
+                </div>
+                <button
+                  class="genre-explore rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  type="button"
+                  data-genre="romance"
+                >
+                  Explore Romance
+                </button>
+              </div>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="titanic">
+                  <div class="relative">
+                    <img
+                      src="https://image.tmdb.org/t/p/w780/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
+                      alt="Titanic"
+                      class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                    <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                      Romance Drama
+                    </span>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-5">
+                    <div class="space-y-2">
+                      <h4 class="text-lg font-semibold text-white">Titanic</h4>
+                      <p class="text-sm text-slate-300">
+                        Two lovers aboard a doomed voyage fight for each other and their future.
+                      </p>
+                    </div>
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      <span>1997-12-18</span>
+                      <span>Rating 7.9</span>
+                    </div>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                      href="https://www.youtube.com/watch?v=oHY7D7K58BM"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Watch trailer
+                    </a>
+                  </div>
+                </article>
+
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="wuthering heights">
+                  <div class="relative">
+                    <img
+                      src="https://image.tmdb.org/t/p/w780/vSQSYd2zZTqc0zmHImwWEGGluMI.jpg"
+                      alt="Wuthering Heights"
+                      class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                    <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                      Romance Drama
+                    </span>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-5">
+                    <div class="space-y-2">
+                      <h4 class="text-lg font-semibold text-white">Wuthering Heights</h4>
+                      <p class="text-sm text-slate-300">
+                        A tragic love story ignites across the Yorkshire moors and refuses to die.
+                      </p>
+                    </div>
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      <span>2026-02-11</span>
+                      <span>Rating 6.4</span>
+                    </div>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                      href="https://www.youtube.com/watch?v=3fLCdIYShEQ"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Watch trailer
+                    </a>
+                  </div>
+                </article>
+
+                  <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="la la land">
+                    <div class="relative">
+                      <img
+                        src="https://image.tmdb.org/t/p/w780/qJeU7KM4nT2C1WpOrwPcSDGFUWE.jpg"
+                        alt="La La Land"
+                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                      <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                        Romance Musical
+                      </span>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-4 p-5">
+                      <div class="space-y-2">
+                        <h4 class="text-lg font-semibold text-white">La La Land</h4>
+                        <p class="text-sm text-slate-300">
+                          Mia and Sebastian are struggling to make ends meet in a city known for crushing hopes.
+                        </p>
+                      </div>
+                      <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        <span>2016-12-29</span>
+                        <span>Rating 8.0</span>
+                      </div>
+                      <a
+                        class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                        href="https://www.youtube.com/watch?v=0pdqf4P9MB8"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Watch trailer
+                      </a>
+                    </div>
+                  </article>
+                  <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="the notebook">
+                    <div class="relative">
+                      <img
+                        src="https://placehold.co/500x750/1e293b/ffffff?text=The%20Notebook"
+                        alt="The Notebook"
+                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                      <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                        Romance Drama
+                      </span>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-4 p-5">
+                      <div class="space-y-2">
+                        <h4 class="text-lg font-semibold text-white">The Notebook</h4>
+                        <p class="text-sm text-slate-300">
+                          An epic love story centered around an older man who reads aloud to a woman.
+                        </p>
+                      </div>
+                      <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        <span>2004-06-25</span>
+                        <span>Rating 7.9</span>
+                      </div>
+                      <a
+                        class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                        href="https://www.youtube.com/watch?v=FC6biTjEyZw"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Watch trailer
+                      </a>
+                    </div>
+                  </article>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h3 class="text-xl font-semibold text-white">Horror</h3>
+                  <p class="text-sm text-slate-300">Keep the lights on tonight.</p>
+                </div>
+                <button
+                  class="genre-explore rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  type="button"
+                  data-genre="horror"
+                >
+                  Explore Horror
+                </button>
+              </div>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="send help">
+                  <div class="relative">
+                    <img
+                      src="https://image.tmdb.org/t/p/w780/fBh0OlTY5XSHuFrQ7ylXHniwg9s.jpg"
+                      alt="Send Help"
+                      class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                    <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                      Horror Comedy
+                    </span>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-5">
+                    <div class="space-y-2">
+                      <h4 class="text-lg font-semibold text-white">Send Help</h4>
+                      <p class="text-sm text-slate-300">
+                        Two co-workers survive a crash and fight to escape a deadly island.
+                      </p>
+                    </div>
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      <span>2026-01-22</span>
+                      <span>Rating 7.0</span>
+                    </div>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                      href="https://www.youtube.com/watch?v=R4wiXj9NmEE"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Watch trailer
+                    </a>
+                  </div>
+                </article>
+
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="the deadly little mermaid">
+                  <div class="relative">
+                    <img
+                      src="https://image.tmdb.org/t/p/w780/yzIjyPtwvyjHelxqIRXGpiaucPG.jpg"
+                      alt="The Deadly Little Mermaid"
+                      class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                    <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                      Horror
+                    </span>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-5">
+                    <div class="space-y-2">
+                      <h4 class="text-lg font-semibold text-white">The Deadly Little Mermaid</h4>
+                      <p class="text-sm text-slate-300">
+                        A rescued stranger brings a curse ashore and turns a coastal home into a trap.
+                      </p>
+                    </div>
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      <span>2026-03-06</span>
+                      <span>Rating 5.4</span>
+                    </div>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                      href="https://www.youtube.com/watch?v=xU4bplQ2ZbY"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Watch trailer
+                    </a>
+                  </div>
+                </article>
+                  <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="get out">
+                    <div class="relative">
+                      <img
+                        src="https://placehold.co/500x750/1e293b/ffffff?text=Get%20Out"
+                        alt="Get Out"
+                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                      <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                        Horror
+                      </span>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-4 p-5">
+                      <div class="space-y-2">
+                        <h4 class="text-lg font-semibold text-white">Get Out</h4>
+                        <p class="text-sm text-slate-300">
+                          Classic must-watch movie.
+                        </p>
+                      </div>
+                      <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        <span>2017-02-24</span>
+                        <span>Rating 8.1</span>
+                      </div>
+                      <a
+                        class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                        href="https://www.youtube.com/watch?v=DzfpyUB60YY"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Watch trailer
+                      </a>
+                    </div>
+                  </article>
+                  <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="a quiet place">
+                    <div class="relative">
+                      <img
+                        src="https://placehold.co/500x750/1e293b/ffffff?text=A%20Quiet%20Place"
+                        alt="A Quiet Place"
+                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                      <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                        Horror
+                      </span>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-4 p-5">
+                      <div class="space-y-2">
+                        <h4 class="text-lg font-semibold text-white">A Quiet Place</h4>
+                        <p class="text-sm text-slate-300">
+                          Classic must-watch movie.
+                        </p>
+                      </div>
+                      <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        <span>2018-04-06</span>
+                        <span>Rating 8.1</span>
+                      </div>
+                      <a
+                        class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                        href="https://www.youtube.com/watch?v=WR7cc5t7tv8"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Watch trailer
+                      </a>
+                    </div>
+                  </article>
+
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h3 class="text-xl font-semibold text-white">Thriller</h3>
+                  <p class="text-sm text-slate-300">High stakes and higher tension.</p>
+                </div>
+                <button
+                  class="genre-explore rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  type="button"
+                  data-genre="thriller"
+                >
+                  Explore Thriller
+                </button>
+              </div>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="shelter">
+                  <div class="relative">
+                    <img
+                      src="https://image.tmdb.org/t/p/w780/nHxWyy18SvAZ8jJeemtS8k1UNjM.jpg"
+                      alt="Shelter"
+                      class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                    <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                      Action Thriller
+                    </span>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-5">
+                    <div class="space-y-2">
+                      <h4 class="text-lg font-semibold text-white">Shelter</h4>
+                      <p class="text-sm text-slate-300">
+                        A rescue on a remote island sparks a fight against enemies from the past.
+                      </p>
+                    </div>
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      <span>2026-01-28</span>
+                      <span>Rating 6.7</span>
+                    </div>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                      href="https://www.youtube.com/watch?v=PPMawzJxKF4"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Watch trailer
+                    </a>
+                  </div>
+                </article>
+
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="war machine">
+                  <div class="relative">
+                    <img
+                      src="https://image.tmdb.org/t/p/w780/6yeVcxFR0j08vlv2OlL6zbewm4D.jpg"
+                      alt="War Machine"
+                      class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                    <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                      Action Thriller
+                    </span>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-5">
+                    <div class="space-y-2">
+                      <h4 class="text-lg font-semibold text-white">War Machine</h4>
+                      <p class="text-sm text-slate-300">
+                        A combat engineer leads a unit through a mission against a massive killing machine.
+                      </p>
+                    </div>
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      <span>2026-02-12</span>
+                      <span>Rating 7.3</span>
+                    </div>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                      href="https://www.youtube.com/watch?v=AFuE1LRxm80"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Watch trailer
+                    </a>
+                  </div>
+                </article>
+                  <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="se7en">
+                    <div class="relative">
+                      <img
+                        src="https://placehold.co/500x750/1e293b/ffffff?text=Se7en"
+                        alt="Se7en"
+                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                      <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                        Thriller
+                      </span>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-4 p-5">
+                      <div class="space-y-2">
+                        <h4 class="text-lg font-semibold text-white">Se7en</h4>
+                        <p class="text-sm text-slate-300">
+                          Classic must-watch movie.
+                        </p>
+                      </div>
+                      <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        <span>1995-09-22</span>
+                        <span>Rating 8.6</span>
+                      </div>
+                      <a
+                        class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                        href="https://www.youtube.com/watch?v=znmZoVkCjpI"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Watch trailer
+                      </a>
+                    </div>
+                  </article>
+                  <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="inception">
+                    <div class="relative">
+                      <img
+                        src="https://placehold.co/500x750/1e293b/ffffff?text=Inception"
+                        alt="Inception"
+                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                      <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                        Thriller
+                      </span>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-4 p-5">
+                      <div class="space-y-2">
+                        <h4 class="text-lg font-semibold text-white">Inception</h4>
+                        <p class="text-sm text-slate-300">
+                          Classic must-watch movie.
+                        </p>
+                      </div>
+                      <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        <span>2010-07-16</span>
+                        <span>Rating 8.8</span>
+                      </div>
+                      <a
+                        class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                        href="https://www.youtube.com/watch?v=YoHD9XEInc0"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Watch trailer
+                      </a>
+                    </div>
+                  </article>
+
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h3 class="text-xl font-semibold text-white">Comedy</h3>
+                  <p class="text-sm text-slate-300">Bright, loud, and impossible to ignore.</p>
+                </div>
+                <button
+                  class="genre-explore rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  type="button"
+                  data-genre="comedy"
+                >
+                  Explore Comedy
+                </button>
+              </div>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="zootopia 2">
+                  <div class="relative">
+                    <img
+                      src="https://image.tmdb.org/t/p/w780/lgotj3xMoJZbynwHfcQcJAEMWH.jpg"
+                      alt="Zootopia 2"
+                      class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                    <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                      Animation Comedy
+                    </span>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-5">
+                    <div class="space-y-2">
+                      <h4 class="text-lg font-semibold text-white">Zootopia 2</h4>
+                      <p class="text-sm text-slate-300">
+                        Judy and Nick go undercover again when a mystery throws the city off balance.
+                      </p>
+                    </div>
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      <span>2025-11-26</span>
+                      <span>Rating 7.6</span>
+                    </div>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                      href="https://www.youtube.com/watch?v=BjkIOU5PhyQ"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Watch trailer
+                    </a>
+                  </div>
+                </article>
+
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="goat">
+                  <div class="relative">
+                    <img
+                      src="https://image.tmdb.org/t/p/w780/tq3h43fZy0H80vzf47MAY7R9Mxo.jpg"
+                      alt="GOAT"
+                      class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                    <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                      Animation Comedy
+                    </span>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-5">
+                    <div class="space-y-2">
+                      <h4 class="text-lg font-semibold text-white">GOAT</h4>
+                      <p class="text-sm text-slate-300">
+                        A small goat gets a once-in-a-lifetime shot at a brutal pro sport.
+                      </p>
+                    </div>
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      <span>2026-02-11</span>
+                      <span>Rating 7.6</span>
+                    </div>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                      href="https://www.youtube.com/watch?v=5-7eWDBc40"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Watch trailer
+                    </a>
+                  </div>
+                </article>
+                  <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="superbad">
+                    <div class="relative">
+                      <img
+                        src="https://image.tmdb.org/t/p/w500/ek8e8txUyUwd2BNqj6lFEerJfbq.jpg"
+                        alt="Superbad"
+                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                      <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                        Comedy
+                      </span>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-4 p-5">
+                      <div class="space-y-2">
+                        <h4 class="text-lg font-semibold text-white">Superbad</h4>
+                        <p class="text-sm text-slate-300">
+                          Classic must-watch movie.
+                        </p>
+                      </div>
+                      <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        <span>2007-08-17</span>
+                        <span>Rating 7.6</span>
+                      </div>
+                      <a
+                        class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                        href="https://www.youtube.com/watch?v=4eaZ_48ZYog"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Watch trailer
+                      </a>
+                    </div>
+                  </article>
+                  <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card" data-title="step brothers">
+                    <div class="relative">
+                      <img
+                        src="https://placehold.co/500x750/1e293b/ffffff?text=Step%20Brothers"
+                        alt="Step Brothers"
+                        class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent"></div>
+                      <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                        Comedy
+                      </span>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-4 p-5">
+                      <div class="space-y-2">
+                        <h4 class="text-lg font-semibold text-white">Step Brothers</h4>
+                        <p class="text-sm text-slate-300">
+                          Classic must-watch movie.
+                        </p>
+                      </div>
+                      <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        <span>2008-07-25</span>
+                        <span>Rating 7.0</span>
+                      </div>
+                      <a
+                        class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                        href="https://www.youtube.com/watch?v=CewglxElBK0"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Watch trailer
+                      </a>
+                    </div>
+                  </article>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="imdb-top" class="space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-semibold text-white">IMDb Top Ranked</h2>
+              <p class="text-sm text-slate-300">
+                Timeless picks with legendary ratings.
+              </p>
+            </div>
+            <button class="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10">
+              View full list
+            </button>
+          </div>
+
+          <div
+            id="no-results"
+            class="hidden rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm text-slate-200"
+          >
+            No results found. Try a different search or clear filters.
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="imdb-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card"
+              data-year="1994"
+              data-title="the shawshank redemption"
+              data-genre="drama"
+            >
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg"
+                  alt="The Shawshank Redemption"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Drama
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">The Shawshank Redemption</h3>
+                  <p class="text-sm text-slate-300">
+                    Two imprisoned men bond over years, finding solace and redemption through acts of decency.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>1994</span>
+                  <span>Rating 8.7</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=PLl99DlL6b0"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="imdb-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card"
+              data-year="1972"
+              data-title="the godfather"
+              data-genre="crime drama"
+            >
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+                  alt="The Godfather"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Crime Drama
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">The Godfather</h3>
+                  <p class="text-sm text-slate-300">
+                    The aging patriarch of a crime dynasty transfers control to his reluctant son.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>1972</span>
+                  <span>Rating 8.7</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=8V2k2YQEQJ4"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="imdb-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card"
+              data-year="1993"
+              data-title="schindler's list"
+              data-genre="history drama"
+            >
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg"
+                  alt="Schindler's List"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  History Drama
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Schindler's List</h3>
+                  <p class="text-sm text-slate-300">
+                    An industrialist saves more than a thousand lives during World War II.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>1993</span>
+                  <span>Rating 8.6</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=v0RB-3sWbBA"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="imdb-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card"
+              data-year="2008"
+              data-title="the dark knight"
+              data-genre="action crime"
+            >
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+                  alt="The Dark Knight"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Action Crime
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">The Dark Knight</h3>
+                  <p class="text-sm text-slate-300">
+                    Batman battles the Joker as Gotham descends into chaos.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>2008</span>
+                  <span>Rating 8.5</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=EXeTwQWrcwY"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="imdb-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card"
+              data-year="1997"
+              data-title="titanic"
+              data-genre="romance drama"
+            >
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
+                  alt="Titanic"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Romance Drama
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Titanic</h3>
+                  <p class="text-sm text-slate-300">
+                    Two lovers aboard a doomed voyage fight for each other and their future.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>1997</span>
+                  <span>Rating 7.9</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=oHY7D7K58BM"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="imdb-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card"
+              data-year="2026"
+              data-title="send help"
+              data-genre="horror comedy"
+            >
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/mjkS2iAgWj3ik1DTjvI15nHZ7yl.jpg"
+                  alt="Send Help"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Horror Comedy
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Send Help</h3>
+                  <p class="text-sm text-slate-300">
+                    Two co-workers survive a crash and fight to escape a deadly island.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>2026</span>
+                  <span>Rating 7.0</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=R4wiXj9NmEE"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="imdb-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card"
+              data-year="2026"
+              data-title="shelter"
+              data-genre="action thriller"
+            >
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/buPFnHZ3xQy6vZEHxbHgL1Pc6CR.jpg"
+                  alt="Shelter"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Action Thriller
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Shelter</h3>
+                  <p class="text-sm text-slate-300">
+                    A rescue on a remote island sparks a fight against enemies from the past.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>2026</span>
+                  <span>Rating 6.7</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=PPMawzJxKF4"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+
+            <article class="imdb-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 transition hover:-translate-y-1 hover:border-emerald-200/40 searchable-card"
+              data-year="2025"
+              data-title="zootopia 2"
+              data-genre="animation comedy"
+            >
+              <div class="relative">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/oJ7g2CifqpStmoYQyaLQgEU32qO.jpg"
+                  alt="Zootopia 2"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"></div>
+                <span class="absolute left-4 top-4 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white">
+                  Animation Comedy
+                </span>
+              </div>
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-white">Zootopia 2</h3>
+                  <p class="text-sm text-slate-300">
+                    Judy and Nick go undercover again when a mystery throws the city off balance.
+                  </p>
+                </div>
+                <div class="mt-auto flex flex-wrap items-center justify-between gap-3 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span>2025</span>
+                  <span>Rating 7.6</span>
+                </div>
+                <a
+                  class="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white/40 hover:bg-white/10"
+                  href="https://www.youtube.com/watch?v=BjkIOU5PhyQ"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch trailer
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-emerald-200/10 via-slate-950 to-slate-950 px-8 py-10">
+          <div class="absolute -left-20 top-6 h-40 w-40 rounded-full bg-emerald-200/20 blur-3xl"></div>
+          <div class="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.3em] text-emerald-200">
+                Weekly Signal
+              </p>
+              <h3 class="text-2xl font-semibold text-white md:text-3xl">
+                Get fresh reviews every Friday
+              </h3>
+              <p class="text-sm text-slate-300">
+                No spam. Just cinematic highlights and sharp takes.
+              </p>
+            </div>
+            <form id="newsletter-form" action="mailto:selvamthiru712@gmail.com" method="post" enctype="text/plain" class="flex w-full max-w-md flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                class="w-full rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-slate-400 focus:border-emerald-200/70 focus:outline-none"
+              />
+              <button
+                type="submit"
+                class="rounded-full bg-emerald-200 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5"
+              >
+                Join list
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <footer class="flex flex-col gap-6 border-t border-white/10 pt-8 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="text-white">MovieHub v1</p>
+            <p class="text-xs uppercase tracking-[0.2em]">Original Hollywood archive</p>
+          </div>
+          <div class="flex flex-wrap gap-6 text-xs uppercase tracking-[0.2em]">
+            <a class="transition hover:text-white" href="#">Reviews</a>
+            <a class="transition hover:text-white" href="#">Interviews</a>
+            <a class="transition hover:text-white" href="#">About</a>
+          </div>
+          <p class="text-xs">2026 MovieHub v1. All rights reserved.</p>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script>
+    const heroMovies = [
+      {
+        title: "Project Hail Mary",
+        releaseDate: "2026-03-15",
+        rating: 8.2,
+        genre: "Sci-Fi Adventure",
+        overview: "A teacher-turned-astronaut wakes up light years from home and must save Earth from a dying sun.",
+        poster: "https://image.tmdb.org/t/p/w500/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
+        backdrop: "https://image.tmdb.org/t/p/w780/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg",
+        trailerUrl: "https://www.youtube.com/watch?v=m08TxIsFTRI",
+      },
+      {
+        title: "Peaky Blinders: The Immortal Man",
+        releaseDate: "2026-03-05",
+        rating: 7.4,
+        genre: "Crime Drama",
+        overview: "Tommy Shelby returns to Birmingham to stop a plot that threatens his family and his country.",
+        poster: "https://image.tmdb.org/t/p/w500/gRMalasZEzsZi4w2VFuYusfSfqf.jpg",
+        backdrop: "https://image.tmdb.org/t/p/w780/1fkuBPid72KGS6WmtkEXMftZtkE.jpg",
+        trailerUrl: "https://www.youtube.com/watch?v=lcvUGs3xaDM",
+      },
+      {
+        title: "Crime 101",
+        releaseDate: "2026-02-11",
+        rating: 7.0,
+        genre: "Crime Thriller",
+        overview: "A relentless detective closes in on a thief running high-stakes heists along the 101 freeway.",
+        poster: "https://image.tmdb.org/t/p/w500/heMdO64ys1hR896YE2jvTv8JlBX.jpg",
+        backdrop: "https://image.tmdb.org/t/p/w780/52AkwEfQiJl2HuTPMZ2yC5Bdr9I.jpg",
+        trailerUrl: "https://www.youtube.com/watch?v=f5y-cziwmMw",
+      }
+    ];
+
+    let currentHeroIndex = 0;
+    const heroBg = document.getElementById("hero-bg");
+    const heroContent = document.getElementById("hero-content");
+    const heroTitle = document.getElementById("hero-title");
+    const heroOverview = document.getElementById("hero-overview");
+    const heroGenre = document.getElementById("hero-genre");
+    const heroDate = document.getElementById("hero-date");
+    const heroRating = document.getElementById("hero-rating");
+    const heroTrailer = document.getElementById("hero-trailer");
+    const heroPoster = document.getElementById("hero-poster");
+    const heroPosterDate = document.getElementById("hero-poster-date");
+    const heroDotsContainer = document.getElementById("hero-dots");
+
+    // Initialize dots
+    heroMovies.forEach((_, idx) => {
+      const dot = document.createElement("button");
+      dot.className = `h-1.5 rounded-full transition-all ${idx === 0 ? 'bg-emerald-300 w-6' : 'bg-white/30 w-1.5 hover:bg-white/50'}`;
+      dot.setAttribute("aria-label", `Go to slide ${idx + 1}`);
+      dot.addEventListener("click", () => renderHero(idx));
+      heroDotsContainer.appendChild(dot);
+    });
+
+    const renderHero = (index) => {
+      if (index === currentHeroIndex && heroBg.getAttribute("src") !== "") return;
+      
+      currentHeroIndex = index;
+      const movie = heroMovies[index];
+
+      // Fade out
+      heroContent.classList.replace("opacity-100", "opacity-0");
+      heroBg.classList.replace("opacity-70", "opacity-0");
+
+      setTimeout(() => {
+        heroBg.src = movie.backdrop;
+        heroTitle.textContent = movie.title;
+        heroOverview.textContent = movie.overview;
+        heroGenre.textContent = movie.genre;
+        heroDate.textContent = movie.releaseDate;
+        heroRating.textContent = `Rating ${movie.rating}`;
+        heroTrailer.href = movie.trailerUrl;
+        heroPoster.src = movie.poster;
+        heroPosterDate.textContent = movie.releaseDate;
+
+        // Update dots
+        Array.from(heroDotsContainer.children).forEach((dot, idx) => {
+          dot.className = `h-1.5 rounded-full transition-all ${idx === currentHeroIndex ? 'bg-emerald-300 w-6' : 'bg-white/30 w-1.5 hover:bg-white/50'}`;
+        });
+
+        // Fade in
+        heroContent.classList.replace("opacity-0", "opacity-100");
+        heroBg.classList.replace("opacity-0", "opacity-70");
+      }, 300); // Wait for fade out transition
+    };
+
+    setInterval(() => {
+      renderHero((currentHeroIndex + 1) % heroMovies.length);
+    }, 5000);
+
+    // Initial classes for fading
+    heroContent.classList.add("opacity-100");
+
+  </script>
+  <script>
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        if (emailInput && emailInput.value) {
+          const subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]');
+          subscribers.push(emailInput.value);
+          localStorage.setItem('newsletterSubscribers', JSON.stringify(subscribers));
+          alert('Subscribed! Email saved.');
+        }
+      });
+    }
+    
+  </script>
+</html>

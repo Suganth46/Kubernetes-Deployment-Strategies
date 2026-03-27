@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      // Auth Guard to protect the admin page
+      if (localStorage.getItem("adminUser") !== "selvamthiru712@gmail.com" || localStorage.getItem("isAdmin") !== "true") {
+        window.location.href = "login.html";
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | MovieHub</title>
+    <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-950 text-white min-h-screen relative font-sans">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.12),transparent_55%)] -z-10"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.95),rgba(15,23,42,0.75),rgba(15,23,42,0.95))] -z-10"></div>
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <header class="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-white/10 mb-8">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-emerald-200">
+            MovieHub v1
+          </p>
+          <h1 class="text-3xl font-semibold text-white mt-1">Admin Dashboard</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <a class="text-xs uppercase tracking-[0.2em] text-slate-300 hover:text-white transition" href="index.html">View Site</a>
+          <button id="logout-btn" class="rounded-full border border-red-400/30 bg-red-500/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-red-300 transition hover:bg-red-500/20">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <section class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+        <div class="mb-6 flex justify-between items-center">
+          <div>
+            <h2 class="text-xl font-semibold text-white">Newsletter Subscribers</h2>
+            <p class="text-sm text-slate-400 mt-1">Users signed up for weekly signals.</p>
+          </div>
+          <span id="subscriber-count" class="bg-emerald-300/20 text-emerald-300 py-1 px-3 rounded-full text-sm font-semibold">
+            0 Total
+          </span>
+        </div>
+
+        <div class="bg-slate-900/50 rounded-2xl border border-white/10 overflow-hidden">
+          <ul id="subscriber-list" class="divide-y divide-white/10">
+            <!-- Populated by JS -->
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Load Subscribers
+      const subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]');
+      const listContainer = document.getElementById('subscriber-list');
+      const countDisplay = document.getElementById('subscriber-count');
+
+      countDisplay.textContent = `${subscribers.length} Total`;
+
+      if (subscribers.length === 0) {
+        listContainer.innerHTML = '<li class="p-6 text-center text-slate-400 text-sm">No subscribers yet. The list is empty.</li>';
+      } else {
+        listContainer.innerHTML = subscribers.map((email, idx) => `
+          <li class="flex items-center gap-4 p-4 hover:bg-white/5 transition">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-200 text-xs font-bold">
+              ${idx + 1}
+            </div>
+            <div class="text-sm font-medium text-slate-200">${email}</div>
+          </li>
+        `).join('');
+      }
+
+      // Logout Functionality
+      document.getElementById('logout-btn').addEventListener('click', () => {
+        localStorage.removeItem('adminUser');
+        localStorage.removeItem('isAdmin');
+        window.location.href = 'index.html';
+      });
+    </script>
+  </body>
+</html>

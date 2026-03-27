@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #020617;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+select,
+option {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transition: transform 0.6s ease;
+}
+
+.shine:hover::after {
+  transform: translateX(220%);
+}
+
+.floating {
+  animation: drift 6s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
