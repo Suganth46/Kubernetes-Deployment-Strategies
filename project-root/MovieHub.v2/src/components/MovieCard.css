@@ -1,0 +1,127 @@
+.movie-card {
+  position: relative;
+  display: block; /* Since it's now an <a> tag */
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--surface);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  z-index: 1;
+  aspect-ratio: 2 / 3;
+}
+
+.movie-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  z-index: 10;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.card-image-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.movie-card:hover .card-image {
+  opacity: 0.6;
+  filter: brightness(0.5); /* Dim image when showing play button */
+}
+
+.play-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+}
+
+/* Base state for content gradient */
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(15, 16, 20, 0.8) 40%,
+    rgba(15, 16, 20, 1) 100%
+  );
+  transition: all 0.3s ease;
+  transform: translateY(calc(100% - 70px)); /* Shows title and some meta initially */
+}
+
+.movie-card:hover .card-content {
+  transform: translateY(0);
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 16, 20, 0.4) 0%,
+    rgba(15, 16, 20, 0.9) 30%,
+    rgba(15, 16, 20, 1) 100%
+  );
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star-icon {
+  color: var(--primary);
+}
+
+.card-details {
+  opacity: 0;
+  height: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.movie-card:hover .card-details {
+  opacity: 1;
+  height: auto;
+  margin-top: 10px;
+}
+
+.card-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
